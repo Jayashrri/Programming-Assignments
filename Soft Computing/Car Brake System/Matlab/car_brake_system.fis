@@ -1,0 +1,107 @@
+[System]
+Name='car_brake_system'
+Type='mamdani'
+Version=2.0
+NumInputs=4
+NumOutputs=1
+NumRules=54
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='speed'
+Range=[0 120]
+NumMFs=3
+MF1='slow':'trapmf',[0 0 30 50]
+MF2='medium':'trimf',[40 60 80]
+MF3='fast':'trapmf',[70 90 120 120]
+
+[Input2]
+Name='distance'
+Range=[0 10]
+NumMFs=3
+MF1='near':'trapmf',[0 0 2 3]
+MF2='medium':'trimf',[2 4 5]
+MF3='far':'trapmf',[4 7 10 10]
+
+[Input3]
+Name='inclination_of_road'
+Range=[-60 60]
+NumMFs=3
+MF1='down':'trapmf',[-60 -60 -40 -20]
+MF2='straight':'trimf',[-30 0 30]
+MF3='up':'trapmf',[20 40 60 60]
+
+[Input4]
+Name='road_roughness'
+Range=[0 9]
+NumMFs=2
+MF1='smooth':'trapmf',[0 0 3 5]
+MF2='rough':'trapmf',[4 6 10 10]
+
+[Output1]
+Name='braking_intensity'
+Range=[0 10]
+NumMFs=3
+MF1='weak':'trapmf',[0 0 3 4]
+MF2='medium':'trapmf',[3 4 6 7]
+MF3='strong':'trapmf',[6 7 10 10]
+
+[Rules]
+1 1 1 1, 3 (1) : 1
+1 1 2 1, 2 (1) : 1
+1 1 3 1, 1 (1) : 1
+1 2 1 1, 2 (1) : 1
+1 2 2 1, 1 (1) : 1
+1 2 3 1, 1 (1) : 1
+1 3 1 1, 2 (1) : 1
+1 3 2 1, 1 (1) : 1
+1 3 3 1, 1 (1) : 1
+2 1 1 1, 3 (1) : 1
+2 1 2 1, 3 (1) : 1
+2 1 3 1, 2 (1) : 1
+2 2 1 1, 3 (1) : 1
+2 2 2 1, 2 (1) : 1
+2 2 3 1, 1 (1) : 1
+2 3 1 1, 2 (1) : 1
+2 3 2 1, 1 (1) : 1
+2 3 3 1, 1 (1) : 1
+3 1 1 1, 3 (1) : 1
+3 1 2 1, 3 (1) : 1
+3 1 3 1, 2 (1) : 1
+3 2 1 1, 3 (1) : 1
+3 2 2 1, 3 (1) : 1
+3 2 3 1, 2 (1) : 1
+3 3 1 1, 3 (1) : 1
+3 3 2 1, 2 (1) : 1
+3 3 3 1, 1 (1) : 1
+1 1 1 2, 3 (1) : 1
+1 1 2 2, 2 (1) : 1
+1 1 3 2, 1 (1) : 1
+1 2 1 2, 2 (1) : 1
+1 2 2 2, 1 (1) : 1
+1 2 3 2, 1 (1) : 1
+1 3 1 2, 1 (1) : 1
+1 3 2 2, 1 (1) : 1
+1 3 3 2, 1 (1) : 1
+2 1 1 2, 3 (1) : 1
+2 1 2 2, 3 (1) : 1
+2 1 3 2, 2 (1) : 1
+2 2 1 2, 2 (1) : 1
+2 2 2 2, 2 (1) : 1
+2 2 3 2, 1 (1) : 1
+2 3 1 2, 1 (1) : 1
+2 3 2 2, 1 (1) : 1
+2 3 3 2, 1 (1) : 1
+3 1 1 2, 3 (1) : 1
+3 1 2 2, 3 (1) : 1
+3 1 3 2, 2 (1) : 1
+3 2 1 2, 3 (1) : 1
+3 2 2 2, 3 (1) : 1
+3 2 3 2, 2 (1) : 1
+3 3 1 2, 2 (1) : 1
+3 3 2 2, 1 (1) : 1
+3 3 3 2, 1 (1) : 1

@@ -1,0 +1,13 @@
+server.c
+
+1. The server socket is set up on port 8080
+2. The socket is bound and the server starts listening
+3. When a client makes a connection, the server receives the base, hra, da, pt and epf through the client FD
+4. The server calculates the total salary and displays it on output, and sends a success signal to the client
+5. The client disconnects from the server, while the server remains open for further connections
+
+client.c
+
+1. The client socket is set up, and sends a connection request to the server at port 8080
+2. When the connection is successfully made, the client sends the base, hra, da, pt and epf to the server
+3. The client waits until it receives a success signal from the server, and then displays the success message and closes the connection
